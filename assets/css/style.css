@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.body {
+  margin: 0;
+}
+
+.header {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #aaaaaa;
+  font-size: 3rem;
+  font-family: Arial;
+}
+
+.wrapper {
+  height: calc(100vh - 100px);
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.carousel {
+  position: relative;
+  background-color: #ffffff;
+  height: 100px;
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel::before,
+.carousel::after {
+  position: absolute;
+  content: "";
+  width: 200px;
+  height: 100px;
+  top: 0;
+  z-index: 1;
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+  
+}
+
+.carousel::before {
+  left: 0;
+}
+
+.carousel::after {
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.slide {
+  display: flex;
+  height: inherit;
+  align-items: center;
+  animation: slideshow 30s linear infinite;
+}
+
+.slide__image {
+  width: auto;
+  height: calc(100% - 40px);
+  margin: 0 40px;
+}
+
+@keyframes slideshow {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
